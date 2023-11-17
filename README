@@ -1,0 +1,27 @@
+# Python Challenge Homework
+
+
+## Website: 
+[website](erinaccooper@gmail.com)
+
+## Description
+Python challenge assignment 
+
+## Usage
+For learning purposes only.
+
+## Credits
+Erin Cooper, Jeremy Cooper who provided the suggestion of using dictionaries and reminded me to give my variables memorable names. Class recordings and materials were the primary resource but Python documentation was referenced as well to review funtions.
+
+
+
+## Features
+Features two exercises "PyBank" and "PyPoll" which analyze financial and election data respectively.
+
+## Tests
+This project should print values in terminal and to a "analysis_results" text file for both exercises.
+
+## Contact
+If there are any questions of concerns, I can be reached at:
+##### [github: eaccooper5](https://github.com/eaccooper5)
+##### [email: erinaccooper@gmail.com](mailto:erinaccooper@gmail.com)
