@@ -12,6 +12,8 @@ with open(csvpath) as csvfile:
     #skip headers
     csv_header = next(csvfile)
     #print header in analysis_results.txt
+    print("""Election Results
+----------------------------""")
     lines.append("""Election Results
 ----------------------------\n""")
     
@@ -35,6 +37,8 @@ with open(csvpath) as csvfile:
         #tally number of votes per candidate by counting number of times name appears in file
         votesdic[name] = candVotes+1
 
+    print(f"Total Votes: {total_votes}")
+    print("-------------------------")
     lines.append(f"Total Votes: {total_votes}\n")
     lines.append("-------------------------\n")
 
@@ -49,9 +53,11 @@ with open(csvpath) as csvfile:
             maxVotes = candVotes
             maxName = name
 
-
+        print(f"{name}: {candPCT*100:.03f}% ({candVotes})")
         lines.append(f"{name}: {candPCT*100:.03f}% ({candVotes})\n")
+    print("-------------------------")
     lines.append("-------------------------\n")
+    print(f"Winner: {maxName}")
     lines.append(f"Winner: {maxName}\n")
 with open(txtpath,"w") as outfile:
     outfile.writelines(lines)

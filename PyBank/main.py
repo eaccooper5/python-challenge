@@ -12,6 +12,8 @@ with open(csvpath) as csvfile:
     #skip headers
     csv_header = next(csvfile)
     #print headers for testing
+    print("""Financial Analysis
+----------------------------""")
     lines.append("""Financial Analysis
 ----------------------------\n""")
 
@@ -23,11 +25,13 @@ with open(csvpath) as csvfile:
 
 #getting the length of the keys for the dictionary to count the number of date/month entries
     date_count = len(profit_loss_dictionary.keys())
+    print(f"Total Months: {date_count}")
     lines.append(f"Total Months: {date_count}\n")
     
 #find net total profit/losses over entire period. sum from values in second column of dictionary
     total_profit = sum(profit_loss_dictionary.values())
     #print with formatting ":.0f"
+    print(f"Total: ${total_profit:.0f}")
     lines.append(f"Total: ${total_profit:.0f}\n")
 
     #create a list of the changes in profit/loss
@@ -52,15 +56,18 @@ with open(csvpath) as csvfile:
 #find average change in profit/loss over entire period starting with the second value.
     totalCh = sum(changelist.values())
     averageCh = totalCh/(date_count-1)
+    print(f"Average Change: ${averageCh:.2f}")
     lines.append(f"Average Change: ${averageCh:.2f}\n")
 
 #find greatest increase in profit (with date and amount) over entire period
     max_date = (max(changelist, key=changelist.get))
+    print(f"Greatest Increase in Profits: {max_date} (${changelist[max_date]:.0f})")
     lines.append(f"Greatest Increase in Profits: {max_date} (${changelist[max_date]:.0f})\n")
 
 #find greatest decrease in profit (with date and amount) over entire period
     min_date = (min(changelist, key=changelist.get))
-    #add line to 
+    print(f"Greatest Decrease in Profits: {min_date} (${changelist[min_date]:.0f})")
+    #add line to analysis_results.txt
     lines.append(f"Greatest Decrease in Profits: {min_date} (${changelist[min_date]:.0f})\n")
 with open(txtpath,"w") as outfile:
     outfile.writelines(lines)
